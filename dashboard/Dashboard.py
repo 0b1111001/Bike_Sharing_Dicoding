@@ -7,8 +7,8 @@ import streamlit as st
 st.title("Bike Sharing 🚵")
 st.caption("Anderson Usman")
 
-clean_hour_df = pd.read_csv("clean_hour.csv")
-clean_day_df = pd.read_csv("clean_day.csv")
+clean_hour_df = pd.read_csv("./clean_hour.csv")
+clean_day_df = pd.read_csv("./clean_day.csv")
 
 # Display metrics
 col1, col2, col3 = st.columns(3)
