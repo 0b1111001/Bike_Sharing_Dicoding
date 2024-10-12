@@ -42,6 +42,18 @@ ax.tick_params(axis='x', labelsize=10)
 ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'{int(x):,}'))
 st.pyplot(fig)
 
+# Menyiapkan data untuk divisualisasikan
+analysis_df = clean_day_df[['temp', 'atemp', 'humidity', 'wind_speed', 'count_total_rental']]
+correlation = analysis_df.corr()
+
+# Visualisasi Data
+plt.figure(figsize=(10, 6))
+sns.heatmap(correlation, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title("Korelasi antara variabel cuaca dengan jumlah penyewaan sepeda")
+
+# Tampilkan heatmap di dashboard Streamlit
+st.pyplot(plt)
+
 # Mapping month names to numbers
 month_mapping = {
     'Jan': 1,
